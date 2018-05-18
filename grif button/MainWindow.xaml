@@ -20,9 +20,13 @@
 
         </Grid.ColumnDefinitions>
 
-        <Menu Background="LightGray" Padding="3" FontSize="20" Height="35" >
+        <Menu Name="MenuUpper" Background="LightGray" Padding="3" FontSize="20" Height="35" >
             <MenuItem Header="File" >
-                <MenuItem Header="New Game" Click="NewGame" />
+                <MenuItem Header="New Game"  >
+                    <MenuItem Header="Child" Click="MenuItem_Click"/>
+                    <MenuItem Header="Normal" Click="MenuItem_Click"/>
+                    <MenuItem Header="Dark Souls" Click="MenuItem_Click"/>
+                </MenuItem>
                 <Separator/>
                 <MenuItem Header="Exit" Click="Exit" />
             </MenuItem>

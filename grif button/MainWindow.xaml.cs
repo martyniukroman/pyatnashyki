@@ -31,27 +31,54 @@ namespace grif_button {
         private void NightMode(object sender, RoutedEventArgs e) {
 
             if ((sender as CheckBox).IsChecked == true) {
-
+                foreach (var item in GridInner.Children) 
+                    (item as Button).Background = new SolidColorBrush(Colors.DimGray);                         
+                GridInner.Background = new SolidColorBrush(Colors.DarkGray);
+                MenuUpper.Background = new SolidColorBrush(Colors.DimGray);
             }
             else {
-
+                foreach (var item in GridInner.Children) 
+                    (item as Button).Background = new SolidColorBrush(Colors.Azure);
+                GridInner.Background = new SolidColorBrush(Colors.Azure);
+                MenuUpper.Background = new SolidColorBrush(Colors.Azure);
             }
 
         }
 
-        private void NewGame(object sender, RoutedEventArgs e) {
+        Random r = new Random();
+
+        private void NewGame(int dif) {
             // start new game
            // MessageBox.Show("abs");
+           for(int i=0;i<dif;i++) {
+                SwapButtons(Buttons[r.Next(0, Buttons.Count)]);
+            }
+            
+
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e) {
+            int dif = 0;
 
+            if((sender as MenuItem).Header.ToString() == "Child") {
+                dif = 50;
+            }
+            if ((sender as MenuItem).Header.ToString() == "Normal") {
+                dif = 250;
+            }
+            if ((sender as MenuItem).Header.ToString() == "Dark Souls") {
+                dif = 500;
+            }
+            NewGame(dif);
         }
 
         public MainWindow() {
             InitializeComponent();
-            for (int i = 0; i < x; i++) {
-                for (int j = 0; j < y; j++) {
+
+            for (int i = 0; i < x; i++) 
+                {
+                for (int j = 0; j < y; j++) 
+                    {
 
                     if (i == x - 1 && j == y - 1) {
                         tempEmptyX = i;
@@ -70,6 +97,31 @@ namespace grif_button {
                     Grid.SetColumn(tmp, j);
                 }
             }
+
+           
+                   
+
+        }
+
+        public void SwapButtons(Button b) {
+            tempButtonY = Grid.GetColumn(b);
+            tempButtonX = Grid.GetRow(b);
+            if (tempButtonY + 1 == tempEmptyY && tempButtonX == tempEmptyX) {
+                Grid.SetColumn(b, tempEmptyY);
+                tempEmptyY = tempButtonY;
+            }
+            else if (tempButtonY - 1 == tempEmptyY && tempButtonX == tempEmptyX) {
+                Grid.SetColumn(b, tempEmptyY);
+                tempEmptyY = tempButtonY;
+            }
+            else if (tempButtonX + 1 == tempEmptyX && tempEmptyY == tempButtonY) {
+                Grid.SetRow(b, tempEmptyX);
+                tempEmptyX = tempButtonX;
+            }
+            else if (tempButtonX - 1 == tempEmptyX && tempEmptyY == tempButtonY) {
+                Grid.SetRow(b, tempEmptyX);
+                tempEmptyX = tempButtonX;
+            }
         }
 
         private void Tmp_Click(object sender, RoutedEventArgs e)
@@ -77,28 +129,7 @@ namespace grif_button {
 
             // logic swap
 
-           tempButtonY= Grid.GetColumn(sender as Button);
-            tempButtonX = Grid.GetRow(sender as Button);
-            if(tempButtonY+1 == tempEmptyY && tempButtonX == tempEmptyX)
-            {
-                Grid.SetColumn(sender as Button, tempEmptyY);
-                tempEmptyY = tempButtonY;
-            }
-            else if(tempButtonY - 1 == tempEmptyY && tempButtonX==tempEmptyX)
-            {
-                Grid.SetColumn(sender as Button, tempEmptyY);
-                tempEmptyY = tempButtonY;
-            }
-            else if (tempButtonX + 1 == tempEmptyX && tempEmptyY==tempButtonY)
-            {
-                Grid.SetRow(sender as Button, tempEmptyX);
-                  tempEmptyX = tempButtonX;
-            }
-            else if(tempButtonX - 1 == tempEmptyX && tempEmptyY == tempButtonY)
-            {
-                Grid.SetRow(sender as Button, tempEmptyX);
-                tempEmptyX = tempButtonX;
-            }
+            SwapButtons(sender as Button);
             //else if (tempButtonX + 1 == tempEmptyX || tempButtonX - 1 == tempEmptyX )
             //{
             //    Grid.SetRow(sender as Button, tempEmptyX);

@@ -32,6 +32,7 @@ namespace grif_button {
                     }
 
                     Button tmp = new Button();
+                    tmp.Click += Tmp_Click;
                     tmp.Content = counter++;
                     GridInner.Children.Add(tmp);
                     Grid.SetRow(tmp, i);
@@ -39,6 +40,12 @@ namespace grif_button {
                 }
             }
         }
+
+        private void Tmp_Click(object sender, RoutedEventArgs e)
+        {
+           
+        }
+
 
     }
 }

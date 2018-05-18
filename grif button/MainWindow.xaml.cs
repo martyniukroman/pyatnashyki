@@ -22,6 +22,32 @@ namespace grif_button {
         public int x = 4, y = 4;
         public int counter = 1;
         int tempEmptyX = 0, tempEmptyY = 0, tempButtonX = 0, tempButtonY = 0;
+        List<Button> Buttons = new List<Button>();
+
+        private void Exit(object sender, RoutedEventArgs e) {
+            this.Close();
+        }
+
+        private void NightMode(object sender, RoutedEventArgs e) {
+
+            if ((sender as CheckBox).IsChecked == true) {
+
+            }
+            else {
+
+            }
+
+        }
+
+        private void NewGame(object sender, RoutedEventArgs e) {
+            // start new game
+           // MessageBox.Show("abs");
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e) {
+
+        }
+
         public MainWindow() {
             InitializeComponent();
             for (int i = 0; i < x; i++) {
@@ -34,9 +60,11 @@ namespace grif_button {
                     }
 
                     Button tmp = new Button();
+                    Buttons.Add(tmp);                    
                     tmp.FontSize = 50;
                     tmp.Click += Tmp_Click;
                     tmp.Content = counter++;
+                    tmp.Tag = i + " " + j; // for check
                     GridInner.Children.Add(tmp);
                     Grid.SetRow(tmp, i);
                     Grid.SetColumn(tmp, j);
@@ -46,6 +74,9 @@ namespace grif_button {
 
         private void Tmp_Click(object sender, RoutedEventArgs e)
         {
+
+            // logic swap
+
            tempButtonY= Grid.GetColumn(sender as Button);
             tempButtonX = Grid.GetRow(sender as Button);
             if(tempButtonY+1 == tempEmptyY && tempButtonX == tempEmptyX)
@@ -73,6 +104,26 @@ namespace grif_button {
             //    Grid.SetRow(sender as Button, tempEmptyX);
             //    tempEmptyX = tempButtonX;
             //}
+
+
+
+           // win check 
+
+           bool win = true;
+
+           foreach(Button b in Buttons) {
+                int x = Grid.GetColumn(b);
+                int y = Grid.GetRow(b);
+
+                if((y + " " + x) != b.Tag.ToString() ) {
+                    win = false;
+                    break;
+                }
+
+            }
+           if(win == true) {
+                MessageBox.Show("You win");
+            }
 
         }
 

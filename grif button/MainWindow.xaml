@@ -10,23 +10,30 @@
         
         >
 
-    <Grid ShowGridLines="true">
+    <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="35*"/>
+            <RowDefinition Height="35"/>
             <RowDefinition Height="484*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
 
         </Grid.ColumnDefinitions>
 
-        <Menu Background="Aqua" Padding="2">
-            
+        <Menu Background="LightGray" Padding="3" FontSize="20" Height="35" >
+            <MenuItem Header="File" >
+                <MenuItem Header="New Game" Click="NewGame" />
+                <Separator/>
+                <MenuItem Header="Exit" Click="Exit" />
+            </MenuItem>
+            <CheckBox Content="Night mode" Click="NightMode">
+
+            </CheckBox>
         </Menu>
 
         <!--inner grid-->
 
-        <Grid Name="GridInner" ShowGridLines="true" Background="Beige" Grid.Row="1">
+        <Grid Name="GridInner" Background="Azure" Grid.Row="1">
 
             <Grid.RowDefinitions>
                 <RowDefinition/>

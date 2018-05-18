@@ -21,13 +21,15 @@ namespace grif_button {
 
         public int x = 4, y = 4;
         public int counter = 1;
-
+        int tempEmptyX = 0, tempEmptyY = 0, tempButtonX = 0, tempButtonY = 0;
         public MainWindow() {
             InitializeComponent();
             for (int i = 0; i < x; i++) {
                 for (int j = 0; j < y; j++) {
 
                     if (i == x - 1 && j == y - 1) {
+                        tempEmptyX = i;
+                        tempEmptyY = j;
                         break;
                     }
 
@@ -44,6 +46,7 @@ namespace grif_button {
         private void Tmp_Click(object sender, RoutedEventArgs e)
         {
            
+
         }
 
 

@@ -45,8 +45,16 @@ namespace grif_button {
 
         private void Tmp_Click(object sender, RoutedEventArgs e)
         {
-           
-
+           tempButtonY= Grid.GetColumn(sender as Button);
+            tempButtonX = Grid.GetRow(sender as Button);
+            if(tempButtonY+1 == tempEmptyY || tempButtonX+1==tempEmptyX || tempButtonX - 1 == tempEmptyX|| tempButtonY - 1 == tempEmptyY )
+            {
+                Grid.SetColumn(sender as Button, tempEmptyY);
+                Grid.SetRow(sender as Button, tempEmptyX);
+                tempEmptyX = tempButtonX;
+                tempEmptyY = tempButtonY;
+            }
+            
         }
 
 

@@ -43,9 +43,9 @@ namespace grif_button {
             }
         }
 
-        private void Tmp_Click(object sender, RoutedEventArgs e)
-        {
+        private void Tmp_Click(object sender, RoutedEventArgs e){
            
+            (senter as Button).
 
         }
 

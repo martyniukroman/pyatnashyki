@@ -48,14 +48,32 @@ namespace grif_button {
         {
            tempButtonY= Grid.GetColumn(sender as Button);
             tempButtonX = Grid.GetRow(sender as Button);
-            if(tempButtonY+1 == tempEmptyY || tempButtonX+1==tempEmptyX || tempButtonX - 1 == tempEmptyX|| tempButtonY - 1 == tempEmptyY )
+            if(tempButtonY+1 == tempEmptyY && tempButtonX == tempEmptyX)
             {
                 Grid.SetColumn(sender as Button, tempEmptyY);
-                Grid.SetRow(sender as Button, tempEmptyX);
-                tempEmptyX = tempButtonX;
                 tempEmptyY = tempButtonY;
             }
-            
+            else if(tempButtonY - 1 == tempEmptyY && tempButtonX==tempEmptyX)
+            {
+                Grid.SetColumn(sender as Button, tempEmptyY);
+                tempEmptyY = tempButtonY;
+            }
+            else if (tempButtonX + 1 == tempEmptyX && tempEmptyY==tempButtonY)
+            {
+                Grid.SetRow(sender as Button, tempEmptyX);
+                  tempEmptyX = tempButtonX;
+            }
+            else if(tempButtonX - 1 == tempEmptyX && tempEmptyY == tempButtonY)
+            {
+                Grid.SetRow(sender as Button, tempEmptyX);
+                tempEmptyX = tempButtonX;
+            }
+            //else if (tempButtonX + 1 == tempEmptyX || tempButtonX - 1 == tempEmptyX )
+            //{
+            //    Grid.SetRow(sender as Button, tempEmptyX);
+            //    tempEmptyX = tempButtonX;
+            //}
+
         }
 
 

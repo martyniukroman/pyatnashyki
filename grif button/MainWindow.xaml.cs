@@ -19,46 +19,26 @@ namespace grif_button {
     /// </summary>
     public partial class MainWindow : Window {
 
-        public int x, y;
+        public int x = 4, y = 4;
+        public int counter = 1;
 
         public MainWindow() {
             InitializeComponent();
-        }
-
-        private void ButtonCreateIvent(object sender, RoutedEventArgs e) {
-
-           
-            GridInner.RowDefinitions.Clear();
-            GridInner.ColumnDefinitions.Clear();
-
-            if (TextBoxR.Text != null && TextBoxC.Text != null) {
-                x = Convert.ToInt32(TextBoxR.Text);
-                y = Convert.ToInt32(TextBoxC.Text);
-
-                for (int i = 0; i < x; i++) {
-                    GridInner.RowDefinitions.Add(new RowDefinition());
-                }
-
-                for (int i = 0; i < y; i++) {
-                    GridInner.ColumnDefinitions.Add(new ColumnDefinition());
-                }
-
-            }
-
-
-        }
-
-        private void ButtonAdd_Click(object sender, RoutedEventArgs e) {
-
             for (int i = 0; i < x; i++) {
                 for (int j = 0; j < y; j++) {
+
+                    if (i == x - 1 && j == y - 1) {
+                        break;
+                    }
+
                     Button tmp = new Button();
+                    tmp.Content = counter++;
                     GridInner.Children.Add(tmp);
                     Grid.SetRow(tmp, i);
                     Grid.SetColumn(tmp, j);
                 }
             }
-
         }
+
     }
 }

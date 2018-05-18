@@ -6,34 +6,20 @@
         xmlns:local="clr-namespace:grif_button"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
+    <Grid Name="GridInner">
 
         <Grid.RowDefinitions>
             <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="8*" />
-            <ColumnDefinition Width="3*" />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
-
-        <Grid x:Name="GridInner" Background="Azure" ShowGridLines="True">
-
-        </Grid>
-
-        <StackPanel Grid.Column="1" Background="Gray" >
-            <Label Content="R" Width="20" Height="23"/>
-            <TextBox TextAlignment="Right" x:Name="TextBoxR" Margin="5">
-
-            </TextBox>
-            <Label Content="C" Width="20" Height="23"/>
-            <TextBox TextAlignment="Right" x:Name="TextBoxC" Margin="5">
-
-            </TextBox>
-
-            <Button Content="Create" x:Name="ButtonCreate" Margin="5" Click="ButtonCreateIvent"/>
-            <Button Content="Add_Buttons" x:Name="ButtonAdd" Margin="5" Click="ButtonAdd_Click"/>
-
-        </StackPanel>
 
 
     </Grid>

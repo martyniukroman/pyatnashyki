@@ -34,6 +34,7 @@ namespace grif_button {
                     }
 
                     Button tmp = new Button();
+                    tmp.FontSize = 50;
                     tmp.Click += Tmp_Click;
                     tmp.Content = counter++;
                     GridInner.Children.Add(tmp);

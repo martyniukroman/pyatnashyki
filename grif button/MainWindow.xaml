@@ -5,22 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:grif_button"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="500">
-    <Grid Name="GridInner">
+        Title="MainWindow" Height="550" Width="500"
+        MinHeight="550" MinWidth="500"
+        
+        >
+
+    <Grid ShowGridLines="true">
 
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="484*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
+
         </Grid.ColumnDefinitions>
 
+        <Menu Background="Aqua" Padding="2">
+            
+        </Menu>
 
+        <!--inner grid-->
+
+        <Grid Name="GridInner" ShowGridLines="true" Background="Beige" Grid.Row="1">
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+
+        </Grid>
     </Grid>
+
 </Window>

@@ -23,11 +23,38 @@ namespace grif_button {
         public int counter = 1;
         int tempEmptyX = 0, tempEmptyY = 0, tempButtonX = 0, tempButtonY = 0;
         List<Button> Buttons = new List<Button>();
-
+        bool initialized = false;
         private void Exit(object sender, RoutedEventArgs e) {
             this.Close();
         }
 
+        private void initializeGrid()
+        {
+            for (int i = 0; i < x; i++)
+            {
+                for (int j = 0; j < y; j++)
+                {
+
+                    if (i == x - 1 && j == y - 1)
+                    {
+                        tempEmptyX = i;
+                        tempEmptyY = j;
+                        break;
+                    }
+
+                    Button tmp = new Button();
+                    Buttons.Add(tmp);
+                    tmp.FontSize = 50;
+                    tmp.Click += Tmp_Click;
+                    tmp.Content = counter++;
+                    tmp.Tag = i + " " + j; // for check
+                    GridInner.Children.Add(tmp);
+                    Grid.SetRow(tmp, i);
+                    Grid.SetColumn(tmp, j);
+                }
+
+            }
+        }
         private void NightMode(object sender, RoutedEventArgs e) {
 
             if ((sender as CheckBox).IsChecked == true) {
@@ -44,16 +71,22 @@ namespace grif_button {
             }
 
         }
-
         Random r = new Random();
 
         private void NewGame(int dif) {
             // start new game
-           // MessageBox.Show("abs");
-           for(int i=0;i<dif;i++) {
+            // MessageBox.Show("abs");
+            if(initialized==false)
+            {
+                initializeGrid();
+                initialized = true;
+            }
+  
+            for (int i = 0; i < dif; i++)
+            {
                 SwapButtons(Buttons[r.Next(0, Buttons.Count)]);
             }
-            
+
 
         }
 
@@ -74,33 +107,6 @@ namespace grif_button {
 
         public MainWindow() {
             InitializeComponent();
-
-            for (int i = 0; i < x; i++) 
-                {
-                for (int j = 0; j < y; j++) 
-                    {
-
-                    if (i == x - 1 && j == y - 1) {
-                        tempEmptyX = i;
-                        tempEmptyY = j;
-                        break;
-                    }
-
-                    Button tmp = new Button();
-                    Buttons.Add(tmp);                    
-                    tmp.FontSize = 50;
-                    tmp.Click += Tmp_Click;
-                    tmp.Content = counter++;
-                    tmp.Tag = i + " " + j; // for check
-                    GridInner.Children.Add(tmp);
-                    Grid.SetRow(tmp, i);
-                    Grid.SetColumn(tmp, j);
-                }
-            }
-
-           
-                   
-
         }
 
         public void SwapButtons(Button b) {
@@ -129,7 +135,7 @@ namespace grif_button {
 
             // logic swap
 
-            SwapButtons(sender as Button);
+           SwapButtons(sender as Button);
             //else if (tempButtonX + 1 == tempEmptyX || tempButtonX - 1 == tempEmptyX )
             //{
             //    Grid.SetRow(sender as Button, tempEmptyX);

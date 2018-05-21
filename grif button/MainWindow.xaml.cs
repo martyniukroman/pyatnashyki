@@ -51,6 +51,7 @@ namespace grif_button {
                     GridInner.Children.Add(tmp);
                     Grid.SetRow(tmp, i);
                     Grid.SetColumn(tmp, j);
+                   
                 }
 
             }
@@ -89,18 +90,23 @@ namespace grif_button {
 
 
         }
-
         private void MenuItem_Click(object sender, RoutedEventArgs e) {
             int dif = 0;
 
             if((sender as MenuItem).Header.ToString() == "Child") {
                 dif = 50;
+                x = 4;
+                y = 4;
             }
             if ((sender as MenuItem).Header.ToString() == "Normal") {
                 dif = 250;
+                x = 6;
+                y = 6;
             }
             if ((sender as MenuItem).Header.ToString() == "Dark Souls") {
                 dif = 500;
+                x = 9;
+                y = 9;
             }
             NewGame(dif);
         }

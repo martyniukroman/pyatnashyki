@@ -23,7 +23,6 @@ namespace grif_button {
         public int counter = 1;
         int tempEmptyX = 0, tempEmptyY = 0, tempButtonX = 0, tempButtonY = 0;
         List<Button> Buttons = new List<Button>();
-        bool initialized = false;
         private void Exit(object sender, RoutedEventArgs e) {
             this.Close();
         }
@@ -34,6 +33,7 @@ namespace grif_button {
             counter=1;
             GridInner.RowDefinitions.Clear();
             GridInner.ColumnDefinitions.Clear();
+            
             for (int i = 0; i < x; i++)
             {
                 GridInner.RowDefinitions.Add(new RowDefinition());
@@ -49,7 +49,7 @@ namespace grif_button {
                     }
                     
                     Button tmp = new Button();
-                    Buttons.Add(tmp);
+                    
                     tmp.FontSize = 50;
                     tmp.Click += Tmp_Click;
                     tmp.Content = counter++;
@@ -57,7 +57,7 @@ namespace grif_button {
                     GridInner.Children.Add(tmp);
                     Grid.SetRow(tmp, i);
                     Grid.SetColumn(tmp, j);
-                   
+                    Buttons.Add(tmp);
                 }
 
             }
@@ -84,15 +84,15 @@ namespace grif_button {
             // start new game
             // MessageBox.Show("abs");
 
-                InitializeGrid();
-          
-            
-  
+
+            InitializeGrid();
+
+
             for (int i = 0; i < dif; i++)
             {
                 SwapButtons(Buttons[r.Next(0, Buttons.Count)]);
             }
-
+            
 
         }
         private void MenuItem_Click(object sender, RoutedEventArgs e) {

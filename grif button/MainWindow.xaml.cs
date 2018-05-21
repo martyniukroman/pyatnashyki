@@ -30,18 +30,24 @@ namespace grif_button {
 
         private void InitializeGrid()
         {
+            Buttons.Clear();
+            counter=1;
+            GridInner.RowDefinitions.Clear();
+            GridInner.ColumnDefinitions.Clear();
             for (int i = 0; i < x; i++)
             {
+                GridInner.RowDefinitions.Add(new RowDefinition());
+                GridInner.ColumnDefinitions.Add(new ColumnDefinition());
                 for (int j = 0; j < y; j++)
                 {
-
+                    
                     if (i == x - 1 && j == y - 1)
                     {
                         tempEmptyX = i;
                         tempEmptyY = j;
                         break;
                     }
-
+                    
                     Button tmp = new Button();
                     Buttons.Add(tmp);
                     tmp.FontSize = 50;
@@ -76,11 +82,10 @@ namespace grif_button {
         private void NewGame(int dif) {
             // start new game
             // MessageBox.Show("abs");
-            if(initialized==false)
-            {
+
                 InitializeGrid();
-                initialized = true;
-            }
+          
+            
   
             for (int i = 0; i < dif; i++)
             {
@@ -95,12 +100,18 @@ namespace grif_button {
 
             if((sender as MenuItem).Header.ToString() == "Child") {
                 dif = 50;
+                x = 4;
+                y = 4;
             }
             if ((sender as MenuItem).Header.ToString() == "Normal") {
                 dif = 250;
+                x = 5;
+                y = 5;
             }
             if ((sender as MenuItem).Header.ToString() == "Dark Souls") {
                 dif = 500;
+                x = 6;
+                y = 6;
             }
             NewGame(dif);
         }

@@ -37,19 +37,13 @@
 
         <!--inner grid-->
 
-        <Grid Name="GridInner" Background="Azure" Grid.Row="1">
+        <Grid Name="GridInner" Background="Azure" Margin="0,35,-0.4,-0.2" Grid.RowSpan="2">
 
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
+
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
+
             </Grid.ColumnDefinitions>
 
 

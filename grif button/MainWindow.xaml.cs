@@ -57,6 +57,7 @@ namespace grif_button {
                     GridInner.Children.Add(tmp);
                     Grid.SetRow(tmp, i);
                     Grid.SetColumn(tmp, j);
+                   
                 }
 
             }
@@ -94,7 +95,6 @@ namespace grif_button {
 
 
         }
-
         private void MenuItem_Click(object sender, RoutedEventArgs e) {
             int dif = 0;
 

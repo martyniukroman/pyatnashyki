@@ -34,6 +34,13 @@ namespace grif_button {
             counter=1;
             GridInner.RowDefinitions.Clear();
             GridInner.ColumnDefinitions.Clear();
+            tempEmptyX = 0;
+            tempEmptyY = 0;
+            tempButtonX = 0;
+            tempButtonY = 0;
+
+           
+
             for (int i = 0; i < x; i++)
             {
                 GridInner.RowDefinitions.Add(new RowDefinition());

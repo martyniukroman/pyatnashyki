@@ -97,10 +97,6 @@ namespace grif_button {
                     Grid.SetColumn(tmp, j);
                 }
             }
-
-           
-                   
-
         }
 
         public void SwapButtons(Button b) {

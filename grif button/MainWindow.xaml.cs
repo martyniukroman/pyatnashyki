@@ -28,7 +28,7 @@ namespace grif_button {
             this.Close();
         }
 
-        private void initializeGrid()
+        private void InitializeGrid()
         {
             for (int i = 0; i < x; i++)
             {
@@ -78,7 +78,7 @@ namespace grif_button {
             // MessageBox.Show("abs");
             if(initialized==false)
             {
-                initializeGrid();
+                InitializeGrid();
                 initialized = true;
             }
   

@@ -38,7 +38,6 @@ namespace grif_button {
             tempEmptyY = 0;
             tempButtonX = 0;
             tempButtonY = 0;
-
            
 
             for (int i = 0; i < x; i++)

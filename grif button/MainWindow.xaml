@@ -21,7 +21,7 @@
         </Grid.ColumnDefinitions>
 
         <Menu Name="MenuUpper" Background="LightGray" Padding="3" FontSize="20" Height="35" >
-            <MenuItem Header="File" >
+            <MenuItem Header="this." >
                 <MenuItem Header="New Game"  >
                     <MenuItem Header="Child" Click="MenuItem_Click"/>
                     <MenuItem Header="Normal" Click="MenuItem_Click"/>
